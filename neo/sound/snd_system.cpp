@@ -163,8 +163,8 @@ void ListSounds_f( const idCmdArgs &args ) {
 	common->Printf( "%8d total sounds\n", totalSounds );
 	common->Printf( "%8d total samples loaded\n", totalSamples );
 	common->Printf( "%8d kB total system memory used\n", totalMemory >> 10 );
-#if ID_OPENAL
-	common->Printf( "%8d kB total OpenAL audio memory used\n", ( alGetInteger( alGetEnumValue( "AL_EAX_RAM_SIZE" ) ) - alGetInteger( alGetEnumValue( "AL_EAX_RAM_FREE" ) ) ) >> 10 );
+#if ID_OPENAL //[TIHan] - added ID_ALCHAR to alGetEnumValue	
+    common->Printf( "%8d kB total OpenAL audio memory used\n", ( alGetInteger( alGetEnumValue( ID_ALCHAR "AL_EAX_RAM_SIZE" ) ) - alGetInteger( alGetEnumValue( ID_ALCHAR "AL_EAX_RAM_FREE" ) ) ) >> 10 );
 #endif
 }
 
